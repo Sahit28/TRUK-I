@@ -1,0 +1,13 @@
+{
+  "name": "app-registro-camiones",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ]
+}
+
+
+
+
