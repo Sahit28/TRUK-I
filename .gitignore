@@ -1,1 +1,20 @@
-node_modules
+# Node.js
+node_modules/
+.env
+.env.*.local
+
+# Vite / React
+dist/
+.cache/
+.vite/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# Producción
+build/
