@@ -1,0 +1,17 @@
+# Archivo correcto: render.yaml
+services:
+  - type: web
+    name: TRUK-I
+    runtime: node
+    repo: https://github.com/Sahit28/TRUK-I
+    plan: free
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+    region: oregon
+    buildCommand: npm install
+    startCommand: node index.js
+    autoDeployTrigger: commit
+version: "1"
