@@ -32,3 +32,5 @@ app.get('/api/camiones', async (req, res) => {
   const camiones = await Camion.find().sort({ fecha: -1 });
   res.json(camiones);
 });
+
+VITE_API_URL=http://localhost:5000/api
