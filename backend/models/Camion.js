@@ -1,18 +1,10 @@
 const mongoose = require('mongoose');
-const Camion = require('./models/Camion'); // Asegúrate que el path es correcto
-
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => console.log('✅ Conectado a MongoDB'))
-.catch(err => console.error('❌ Error al conectar a MongoDB', err));
 
 const camionSchema = new mongoose.Schema({
   patente: { type: String, required: true },
   empresa: { type: String, required: true },
-  cofer: { type: String, required: true },
-  fecha: { type: Date, default: Date.now }
+  cofer:   { type: String, required: true },
+  fecha:   { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('Camion', camionSchema);
@@ -32,5 +24,3 @@ app.get('/api/camiones', async (req, res) => {
   const camiones = await Camion.find().sort({ fecha: -1 });
   res.json(camiones);
 });
-
-VITE_API_URL=http://localhost:5000/api
