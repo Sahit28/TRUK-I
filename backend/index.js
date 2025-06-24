@@ -1,27 +1,16 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const cors = require('cors');
-const cookieParser = require('cookie-parser');
-
 const app = express();
-const port = process.env.PORT || 5000;
-const camiones = [];
+const PORT = process.env.PORT || 5000;
 
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+app.use(cors());
 app.use(express.json());
-app.use(cookieParser());
 
 app.get('/api/camiones', (req, res) => {
-  res.json(camiones);
+  res.json([{ patente: 'ABC123', empresa: 'Transporte S.A.', cofer: 'Juan' }]);
 });
 
-app.post('/api/camiones', (req, res) => {
-  const nuevoCamion = req.body;
-  console.log('📥 Camión recibido:', nuevoCamion);
-  nuevoCamion.fecha = new Date().toISOString();
-  camiones.push(nuevoCamion);
-  res.status(201).json({ message: 'Camión registrado', camion: nuevoCamion });
-});
-
-app.listen(port, () => {
-  console.log(`Servidor backend corriendo en http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Servidor backend corriendo en http://localhost:${PORT}`);
 });
