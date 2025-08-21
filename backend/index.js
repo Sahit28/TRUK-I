@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/api/camiones', (req, res) => {
-  res.json([{ patente: 'ABC123', empresa: 'Transporte S.A.', cofer: 'Juan' }]);
+  res.json([{ patente: 'ABC123', empresa: 'Transporte S.A.', chofer: 'Juan' }]);
 });
 
 app.listen(PORT, () => {
